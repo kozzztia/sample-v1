@@ -1,6 +1,14 @@
-const mobileMenuBtn = document.querySelector('.nav__item_mobile-menu');
-const navItems = document.querySelectorAll('.nav__item')
+const navigationList = document.querySelector('.navigation__list')
+const navigation = document.querySelector('.navigation')
 
 
+// -----------------------------burger-menu activated
 
+navigation.onmouseenter = () => {
+    navigationList.classList.add('navigation__list--mobileVersion')
+}
+navigation.onmouseleave = () => {
+    navigationList.classList.remove('navigation__list--mobileVersion')
+}
+// ----------------------------------
 
