@@ -1,0 +1,223 @@
+
+// --------------const
+$color-btns: linear-gradient(to left, rgba(255, 169, 107, 1) 0%,rgba(238, 122, 40, 1) 100%);
+$color-accent: #E97522;
+$color-text: rgba(74, 74, 74, 1);
+$color-title: rgba(51, 51, 51, 1);
+
+
+// ---------------style
+html{
+    font-family: 'Montserrat', sans-serif;
+    background: #eee;
+    color: $color-text;
+    font-size: 10px;
+    *{
+        padding: 0;
+        margin: 0;
+    }
+}
+body{
+    font-size: 1.6rem;
+}
+.box {
+    padding: 2.3rem 10rem;
+    min-height: 2.5rem;
+}
+// ------------------css
+.header {
+    background: #fff;
+    // border: 1px solid #000;
+    max-width: 144rem;
+    height: auto;
+    margin: 0 auto;
+    display: flex;
+    &__logo {
+        // border: 1px solid #000;
+        flex:1;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+    &__nav {
+        // border: 1px solid #000;
+        flex:4;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    &__call {
+        // border: 1px solid #000;
+        flex:2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}
+.call{
+    display: flex;
+    gap: 2rem;
+    justify-content: end;
+    align-items: center;
+    &__callback{
+        font-size: 1.2rem;
+        font-weight: 500;
+        line-height: 1.4rem;
+        cursor: pointer;
+        white-space: nowrap;
+        padding: .8rem 2.4rem;
+        border: 1px solid $color-accent;
+        border-radius: 1rem;
+        color: $color-accent;
+        transition: .2s;
+        &:hover{
+            color:#fff;
+            background: $color-accent;
+        }
+        }
+    &__number{
+        cursor: pointer;
+        display: block;
+        white-space: nowrap;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.4rem;
+    }
+}
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    &__item{
+        position: relative;
+        list-style-type: none;
+        cursor: pointer;
+    }
+    .nav__item_mobile-menu{
+        display: none;
+        color: $color-accent;
+    }
+    &__link{
+        display: block;
+        text-decoration: none;
+        padding: .5rem;
+        white-space: nowrap;
+        transition: .2s;
+        &:hover{
+            color: rgba(51, 51, 51, 1);
+        }
+        &:active{
+            color: $color-accent;
+        }
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 2rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+// ----------------------------media
+
+
+
+@media screen and (max-width:1230px){
+    body{
+        .box{
+            padding: 1.2rem 8rem;
+        }
+        .header{
+            gap: 2rem;
+            &__call{
+                flex: 1;
+                .call{
+                    flex-direction: column-reverse;
+                }
+            }
+            &__logo{
+                justify-content: center;
+            }
+        }
+    }  
+}
+@media screen and (max-width:1000px){
+    body{
+        .box{
+            padding: .8rem 1.68rem;
+        }
+        .header{
+            gap: 1rem;
+        }
+    }  
+}
+@media screen and (max-width:850px){
+    body{
+        .header{
+            gap: 1rem;
+            position: relative;
+            &__nav{
+                order: 2;
+                flex:1;
+                .nav{
+                    flex-direction: column;
+                    position: absolute; 
+                    right: 1rem;
+                    top: 0;
+                    text-align: right;
+                    overflow: hidden;
+                    &__item_mobile-menu{
+                        display: block;
+                        font-size: 4rem;
+                    }
+                    &__item:not(:first-child){
+                        left: 200px;
+                        transition: .2s;
+                    }
+                    &:hover>.nav__item{
+                        left: 0;
+                        transition: .2s;
+                    }
+                }
+            }
+            &__call{
+                order: 1;
+                .call__callback{
+                    display: none;
+            }
+                .call{
+                    flex-direction: row-reverse; 
+                    &:before{
+                        content: "";
+                        display: block;
+                        background-image: url(/images/phone.svg);
+                        width:2rem;
+                        height:2rem;
+                        cursor: pointer;
+                }
+                }
+            }
+        }
+    }  
+}
+
+@media screen and (max-width:375px){
+    body{
+        .header{
+            &__nav{
+                .nav{
+                    &__item_mobile-menu{
+                        font-size: 3rem;
+                    }
+                }
+            }
+        }
+    }
+}
