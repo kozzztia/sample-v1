@@ -1,6 +1,6 @@
 
 // --------------const
-$color-btns: linear-gradient(to left, rgba(255, 169, 107, 1) 0%,rgba(238, 122, 40, 1) 100%);
+$color-btns: linear-gradient(top, rgba(255, 169, 107, 1) 0%,rgba(238, 122, 40, 1) 100%);
 $color-accent: #E97522;
 $color-text: rgba(74, 74, 74, 1);
 $color-title: rgba(51, 51, 51, 1);
@@ -43,6 +43,7 @@ body{
         background: #fff;
     }
     &__header {
+        // ----------------------------------------------------header
         padding: 2.3rem 10rem;
         display: flex;
         justify-content: space-between;
@@ -51,7 +52,13 @@ body{
         z-index: 10;
     }
     &__baner {
+        // --------------------------------------------------------baner
         min-height: 94rem;
+        padding: 23rem 10rem 15rem 10rem;
+        background: rgba(68, 68, 68, 1);
+        display: flex;
+        flex-direction: row;
+        text-align: left;
     }
     &__portfolio {
         min-height: 93.7rem;
@@ -93,11 +100,35 @@ body{
         background: $color-backgroundSecond;
     }
 }
-// -------------------------header
+// ------------------------
 .logo {
     display: flex;
     align-items: center;
 }
+.buttom {
+    width: 33.6rem;
+    height: 6.4rem;
+    color: #fff;
+    background: $color-btns;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 2rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    &:hover{
+        background: linear-gradient(180deg, #FFA96B -21.43%, #EE7A28 100%);
+
+    }
+    &:active{
+        font-size: 1.4rem;
+    }
+
+}
+
+// ----------------------header
 .navigation {
     display: flex;
     align-items: center;
@@ -158,6 +189,7 @@ body{
         background: inherit;
         display: none;
         cursor: pointer;
+
     }
     
     &__callback {
@@ -168,7 +200,8 @@ body{
         background-color: inherit;
         border: 2px solid $color-accent;
         border-radius: 1rem;
-        width: 19rem;
+        min-width: 19rem;
+        height: 3.5rem;
         padding: .8rem 2.4rem;
         flex: 1;
         color: $color-accent;
@@ -195,6 +228,32 @@ body{
         font-weight: 600;
         text-decoration: none;
         cursor: pointer;
+    }
+}
+// -------------------------baner
+.baner {
+    max-width:81rem;
+    .baner__title {
+        color: #fff;
+        font-weight: 700;
+        font-size: 6.5rem;
+        line-height: 7.8rem;
+        letter-spacing: .3rem;
+        margin-bottom: 5.2rem;
+    }
+    .baner__subtitle {
+        color: #fff;
+        font-weight: 600;
+        font-size: 3.6rem;
+        line-height: 4.3rem;
+        margin-bottom: 2.4rem;
+    }
+    .baner__text {
+        color: #fff;
+        line-height: 2.6rem;
+        margin-bottom: 3.2rem;
+    }
+    .baner__button {
     }
 }
 
@@ -228,9 +287,23 @@ body{
             .phone{
                 flex-direction: column-reverse;
                 align-items: flex-end;
-            }
+            }  
+        }
+        .page__baner{
+          padding: 0;  
+            align-items: center;
+            justify-content: center;
 
-            
+            .baner{
+                width: 90%;
+                text-align: center;
+                display: block;
+                .baner__title{
+                    font-size:4.8rem;
+                }  
+               
+            }
+             
         }
     }  
 
@@ -249,7 +322,7 @@ body{
                     }
                     &__callback-mobile{
                         display: block;
-                        font-size: 4rem;
+                        font-size: 3rem;
                     }
                 }
                 .navigation{
@@ -276,6 +349,84 @@ body{
                     
                 }
                 
+            }
+
+    }  
+
+    
+}
+@media screen and (max-width: 900px) {
+    .page{
+            .page__header{
+                justify-content: space-between;
+                padding:1.6rem .6rem;
+                .phone{
+                    align-items: center;
+                    order: 2;
+                    flex-direction: row-reverse;
+                    &__callback{
+                        display: none;  
+                    }
+                    &__callback-mobile{
+                        display: block;
+                        font-size: 3rem;
+                    }
+                }
+                .navigation{
+                    order: 3;
+                    &__list{
+                        flex-direction: column; 
+                        position: absolute;
+                        right:-200px; 
+                        top: 7.6rem;
+                        transition: .2s;
+                        width: 10rem;
+                        background: rgba(15, 15, 15, 0.7);
+                    }
+                    &__link{
+                        color: #fff;
+                    }
+    
+                    .navigation__burger{
+                        display: block;
+                    }
+                    .navigation__list--mobileVersion{
+                        right: 1rem;
+                    }                 
+                }             
+            }
+    } 
+
+    .page__baner{
+
+        .baner{ 
+            .baner__title{
+                font-size: 24px !important;
+            } 
+
+            .baner__subtitle{
+                display: none;
+            }
+            .baner__text{
+                display: none;
+            } 
+
+        }
+
+    }
+}
+@media screen and (max-width: 400px) {
+    .page{
+            .page__header{
+                justify-content: center;
+                padding:0;
+                gap: 0;     
+            }
+            .phone{
+                gap: 0;
+            }
+            .baner__button{
+                width: 100%;
             }
 
     }  
